@@ -14,8 +14,9 @@
     <input type="checkbox" id="check">
     <div class="login form">
       <header>Login</header>
+        <h2>{{$allUserVal->father_name}}</h2>
       <form action="#">
-        <input type="text" placeholder="Enter your email">
+        <input type="text" placeholder="{{}}">
         <input type="password" placeholder="Enter your password">
         <a href="#">Forgot password?</a>
         <input type="button" class="button" value="Login">
