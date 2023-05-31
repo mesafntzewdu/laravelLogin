@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+
+    $array = ['A', 'B', 'C', 'D'];
+
+    return view('login', compact('array'));
 });
+
+Route::get('get/{user_id}', [App\Http\Controllers\userController::class, 'show']);
