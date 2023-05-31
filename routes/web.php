@@ -3,6 +3,7 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,20 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+
+    $array = ['A', 'B', 'C', 'D'];
+
+    return view('login', compact('array'));
 });
 
-Route::get('get_data', function (){
-
-
-    $allUserVal = Post::all();
-
-//    foreach ($allUserVal as $userVal)
-//    {
-//        return $userVal->father_name;
-//    }
-
-    $viewVar = $allUserVal->id;
-
-    return view('login', $allUserVal;
-});
+Route::get('get/{user_id}', [App\Http\Controllers\userController::class, 'show']);
