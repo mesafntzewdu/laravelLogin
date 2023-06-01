@@ -16,11 +16,19 @@ use app\Http\Controllers\userController;
 |
 */
 
-Route::get('/', function () {
-
-    $array = ['A', 'B', 'C', 'D'];
-
-    return view('login', compact('array'));
+Route::get('/base', function (){
+    return view('welcome');
 });
 
-Route::get('get/{user_id}', [App\Http\Controllers\userController::class, 'show']);
+Route::get('/', function () {
+
+    return view('login');
+});
+
+Route::post('/checkifvaid', [App\Http\Controllers\userController::class, 'checkUser']);
+
+Route::post('/saveUserData', [App\Http\Controllers\userController::class, 'store']);
+
+
+
+
